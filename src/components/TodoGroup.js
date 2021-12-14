@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import TodoItem from "./TodoItem";
 
 function TodoGroup (props) {
 
-    useEffect( () => {
-    }
-    , [props.contentList]);
+    // useEffect( () => {
+    // }
+    // , [props.contentList]);
 
 
     return (
