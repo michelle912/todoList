@@ -1,17 +1,15 @@
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
 
-function TodoGroup (props) {
+function TodoGroup () {
 
-    // useEffect( () => {
-    // }
-    // , [props.contentList]);
+    const contentList = useSelector(state => state.contentList);
 
 
     return (
         <div>
-            {props.contentList.map((item, index) => {
-                return <TodoItem key={item + index} content={item}></TodoItem>;
+            {contentList.map((item, index) => {
+                return <TodoItem key={item.id + index} content={item}></TodoItem>;
             })}
         </div>
     );

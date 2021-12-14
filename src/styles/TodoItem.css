@@ -1,0 +1,7 @@
+.Todo-Done {
+    text-decoration: line-through;
+}
+
+.Todo-NotDone {
+    text-decoration: none;
+}
