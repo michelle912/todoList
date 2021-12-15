@@ -1,6 +1,5 @@
-import { useEffect } from "react";
+import { Input } from "antd";
 import { useSelector } from "react-redux";
-import TodoGroup from "./TodoGroup";
 
 function DoneList() {
 
@@ -9,7 +8,7 @@ function DoneList() {
     return (
         <div>
             {contentList.filter((content) => content.done === true).map((item, index) => {
-                return <div><input key={item.id + index} type="text" readOnly="readonly" value={item.text}></input></div>
+                return <div><Input key={"Done"+item.id + index} size="small" style={{ width: "20%" }} type="text" readOnly="readonly" value={item.text}></Input></div>
             })}
         </div>
     );

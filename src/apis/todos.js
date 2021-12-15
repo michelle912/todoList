@@ -1,8 +1,17 @@
-import axios from "axios";
+import api from "./api"
 
-const api = axios.create({
-    baseURL: "https://61b9880e38f69a0017ce60a5.mockapi.io/"
-});
+export const getTodos = () => {
+    return api.get("/todos");
+}
 
+export const addTodo = (item) => {
+    return api.post("/todos", item);
+}
 
-export default api;
+export const updateTodo = (item) => {
+    return api.put("/todos/"+item.id, item);
+}
+
+export const deleteTodo = (itemId) => {
+    return api.delete("/todos/"+itemId);
+}

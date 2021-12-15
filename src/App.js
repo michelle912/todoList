@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
-import api from './apis/todos';
+import { getTodos } from './apis/todos';
 import './App.css';
 import { INIT_CONTENT_LIST } from './constants/constants';
 import Done from './routes/Done';
@@ -12,7 +12,7 @@ function App() {
   const dispatch = useDispatch();
 
     useEffect(() => {
-        api.get("/todos").then((response) => {
+        getTodos().then((response) => {
             console.log(response);
             dispatch({type:INIT_CONTENT_LIST, payload: response.data});
         })

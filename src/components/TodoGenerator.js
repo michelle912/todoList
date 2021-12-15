@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { UPDATE_CONTENT_LIST } from "../constants/constants";
-import { v4 as uuidv4 } from 'uuid';
+import { addTodo } from "../apis/todos";
+import { Button, Input } from "antd";
 
 function TodoGenerator () {
 
     const [inputContent, setInputContent] = useState("");
-    const buttonStyle = {backgroundColor:" #008CBA",borderRadius: "8px", color: "white"};
 
     const dispatch = useDispatch();
 
@@ -18,16 +18,17 @@ function TodoGenerator () {
         if (inputContent === "") {
             return;
         } 
-        let newContent = {id: uuidv4(), text: inputContent, done: false};
-        dispatch({type: UPDATE_CONTENT_LIST, payload: newContent});
+        addTodo({text: inputContent, done: false}).then((response) => {
+            dispatch({type: UPDATE_CONTENT_LIST, payload: response.data});
+        });        
         setInputContent("");
     }
 
 
     return (
         <div>
-            <input type="text" id="content" value={inputContent} onChange={e => handleInputContent(e)}></input>
-            <button type="button" value="add" onClick={addContent} style={buttonStyle}>add</button>
+            <Input size="small" style={{ width: "20%" }} type="text" id="content" value={inputContent} onChange={e => handleInputContent(e)}></Input>
+            <Button type="primary" value="add" onClick={addContent}>add</Button>
         </div>
     );
 }
