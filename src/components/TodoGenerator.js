@@ -29,7 +29,7 @@ function TodoGenerator () {
     return (
         <div style={{width: "90%" , bottom: "0%", marginLeft: "0px" , position: "fixed" }}>
             <Input.Group compact>
-                <Input size="large" style={{ width: "80%"}} type="text" id="content" value={inputContent} onChange={e => handleInputContent(e)}></Input>
+                <Input size="large" style={{ width: "80%"}} type="text" id="content" value={inputContent} onChange={e => handleInputContent(e)} placeholder="Add new content..."></Input>
                 <Button size="large" type="primary" value="add" icon={<PlusOutlined />} onClick={addContent}></Button>
             </Input.Group>
         </div>

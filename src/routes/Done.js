@@ -1,3 +1,4 @@
+import { Divider } from "antd";
 import DoneList from "../components/DoneList";
 
 function Done() {

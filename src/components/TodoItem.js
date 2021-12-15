@@ -7,7 +7,7 @@ import "../styles/TodoItem.css";
 import { MinusOutlined } from '@ant-design/icons';
 import Modal from "antd/lib/modal/Modal";
 import TextArea from "antd/lib/input/TextArea";
-import { EditOutlined } from '@ant-design/icons';
+import { EditOutlined, RightCircleOutlined } from '@ant-design/icons';
 
 function TodoItem (props) {
     const dispatch = useDispatch();
@@ -67,6 +67,7 @@ function TodoItem (props) {
     return (
         <div>
             <Input.Group compact style={{margin: "5px" }}>
+                <Button disabled="true" type="ghost" icon={<RightCircleOutlined />} style={{color:"#8fcae3"}}></Button>
                 <Input style={{ width: "40%", borderRadius: "5px"}} type="text" readOnly="readonly" value={props.content.text} className={componentClass} onClick={toggleStatus}></Input>
                 <Tooltip title="Edit">
                     <Button onClick={showModal} icon={<EditOutlined />} />
