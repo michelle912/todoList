@@ -1,4 +1,4 @@
-import { DELETE_CONTENT, TOGGLE_STATUS, UPDATE_CONTENT_LIST } from "../constants/constants";
+import { DELETE_CONTENT, INIT_CONTENT_LIST, TOGGLE_STATUS, UPDATE_CONTENT_LIST } from "../constants/constants";
 
 const todoReducer = (state = {contentList: []}, action) => {
     switch(action.type) {
@@ -16,6 +16,11 @@ const todoReducer = (state = {contentList: []}, action) => {
                 contentList: state.contentList.filter(function(content) { 
                     return content.id !== action.payload;
                 })
+            }
+        case INIT_CONTENT_LIST:
+            return {
+                ...state,
+                contentList: action.payload
             }
         default:
             return state;

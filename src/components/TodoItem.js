@@ -10,7 +10,7 @@ function TodoItem (props) {
     function toggleStatus() {
         let content = Object.assign({}, props.content);
         content.done = !content.done;
-        dispatch({type: TOGGLE_STATUS, payload: content})
+        dispatch({type: TOGGLE_STATUS, payload: content});
         if (content.done) {
             setComponentClass("Todo-Done");
         }
