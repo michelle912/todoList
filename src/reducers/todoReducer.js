@@ -1,14 +1,14 @@
-import { DELETE_CONTENT, INIT_CONTENT_LIST, TOGGLE_STATUS, UPDATE_CONTENT_LIST } from "../constants/constants";
+import { DELETE_CONTENT, INIT_CONTENT_LIST, TOGGLE_STATUS, UPDATE_CONTENT, UPDATE_CONTENT_LIST } from "../constants/constants";
 
 const todoReducer = (state = {contentList: []}, action) => {
     switch(action.type) {
         case UPDATE_CONTENT_LIST:
             return {...state, contentList: [...state.contentList, action.payload]};
-        case TOGGLE_STATUS:
+        case UPDATE_CONTENT:
             return {
                 ...state, 
                 contentList: state.contentList.map( 
-                    (content) => content.id === action.payload.id ? {...content, done: action.payload.done}: content)
+                    (content) => content.id === action.payload.id ? action.payload : content)
             }
         case DELETE_CONTENT:
             return {
