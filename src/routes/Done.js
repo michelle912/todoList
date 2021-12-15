@@ -4,8 +4,7 @@ function Done() {
     
     return (
         <>
-        <div className="App">
-            <h1>Done List</h1>
+        <div>
             <DoneList></DoneList>
         </div>
         </>

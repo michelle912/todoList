@@ -66,8 +66,8 @@ function TodoItem (props) {
 
     return (
         <div>
-            <Input.Group compact>
-                <Input style={{ width: "20%" }} type="text" readOnly="readonly" value={props.content.text} className={componentClass} onClick={toggleStatus}></Input>
+            <Input.Group compact style={{margin: "5px" }}>
+                <Input style={{ width: "40%", borderRadius: "5px"}} type="text" readOnly="readonly" value={props.content.text} className={componentClass} onClick={toggleStatus}></Input>
                 <Tooltip title="Edit">
                     <Button onClick={showModal} icon={<EditOutlined />} />
                 </Tooltip>
@@ -75,7 +75,7 @@ function TodoItem (props) {
                     <Button  onClick={deleteTodoItem} icon={<MinusOutlined />} />
                 </Tooltip>
             </Input.Group>
-            <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}><TextArea value={inputContent} onChange={e => handleInputContent(e)}></TextArea></Modal>
+            <Modal title="Edit Content" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}><TextArea value={inputContent} onChange={e => handleInputContent(e)}></TextArea></Modal>
         </div>
     );
 }

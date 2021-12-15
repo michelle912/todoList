@@ -3,9 +3,7 @@ import UndoneList from "../components/UndoneList";
 function Undone() {
     return (
         <>
-        <div className="App">
-            
-            <h1>Undone List</h1>
+        <div>
             <UndoneList></UndoneList>
         </div>
         </>

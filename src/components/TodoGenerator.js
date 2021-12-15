@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { UPDATE_CONTENT_LIST } from "../constants/constants";
 import { addTodo } from "../apis/todos";
 import { Button, Input } from "antd";
+import { PlusOutlined } from '@ant-design/icons';
 
 function TodoGenerator () {
 
@@ -26,9 +27,11 @@ function TodoGenerator () {
 
 
     return (
-        <div>
-            <Input size="small" style={{ width: "20%" }} type="text" id="content" value={inputContent} onChange={e => handleInputContent(e)}></Input>
-            <Button type="primary" value="add" onClick={addContent}>add</Button>
+        <div style={{width: "90%" , bottom: "0%", marginLeft: "0px" , position: "fixed" }}>
+            <Input.Group compact>
+                <Input size="large" style={{ width: "80%"}} type="text" id="content" value={inputContent} onChange={e => handleInputContent(e)}></Input>
+                <Button size="large" type="primary" value="add" icon={<PlusOutlined />} onClick={addContent}></Button>
+            </Input.Group>
         </div>
     );
 }
