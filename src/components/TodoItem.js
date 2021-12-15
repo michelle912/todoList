@@ -1,4 +1,4 @@
-import { Button, Input } from "antd";
+import { Button, Input, Tooltip } from "antd";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteTodo, updateTodo } from "../apis/todos";
@@ -66,10 +66,16 @@ function TodoItem (props) {
 
     return (
         <div>
-            <Input size="small" style={{ width: "20%" }} type="text" readOnly="readonly" value={props.content.text} className={componentClass} onClick={toggleStatus}></Input>
-            <Button shape="circle" onClick={showModal}><EditOutlined /></Button>
+            <Input.Group compact>
+                <Input style={{ width: "20%" }} type="text" readOnly="readonly" value={props.content.text} className={componentClass} onClick={toggleStatus}></Input>
+                <Tooltip title="Edit">
+                    <Button onClick={showModal} icon={<EditOutlined />} />
+                </Tooltip>
+                <Tooltip title="Delete">
+                    <Button  onClick={deleteTodoItem} icon={<MinusOutlined />} />
+                </Tooltip>
+            </Input.Group>
             <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}><TextArea value={inputContent} onChange={e => handleInputContent(e)}></TextArea></Modal>
-            <Button shape="circle"  onClick={deleteTodoItem}>{<MinusOutlined />}</Button>
         </div>
     );
 }
