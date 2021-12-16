@@ -49,7 +49,6 @@ function TodoItem (props) {
     }
 
     function updateTodoContent() {
-        console.log(inputContent);
         let content = Object.assign({}, props.content);
         content.text = inputContent;
         updateTodo(content).then(() => {
@@ -66,14 +65,14 @@ function TodoItem (props) {
 
     return (
         <div>
-            <Input.Group compact style={{margin: "5px" }}>
-                <Button disabled="true" type="ghost" icon={<RightCircleOutlined />} style={{color:"#8fcae3"}}></Button>
+            <Input.Group compact style={{margin: "5px"}} size="large">
+                <Button size="large" disabled="true" type="ghost" icon={<RightCircleOutlined />} style={{color:"#8fcae3"}}></Button>
                 <Input style={{ width: "40%", borderRadius: "5px"}} type="text" readOnly="readonly" value={props.content.text} className={componentClass} onClick={toggleStatus}></Input>
                 <Tooltip title="Edit">
-                    <Button onClick={showModal} icon={<EditOutlined />} />
+                    <Button size="large" onClick={showModal} icon={<EditOutlined />} />
                 </Tooltip>
                 <Tooltip title="Delete">
-                    <Button  onClick={deleteTodoItem} icon={<MinusOutlined />} />
+                    <Button  size="large" onClick={deleteTodoItem} icon={<MinusOutlined />} />
                 </Tooltip>
             </Input.Group>
             <Modal title="Edit Content" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}><TextArea value={inputContent} onChange={e => handleInputContent(e)}></TextArea></Modal>
